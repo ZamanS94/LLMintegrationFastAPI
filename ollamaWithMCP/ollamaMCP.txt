@@ -1,0 +1,15 @@
+1. need to install ollama and pull any model that has tool managing capability.
+2. We can use Zapier MCP to bridge between apps and the local ollama model.
+3. windows has issues running ollmcp. we need ubuntu.
+4. running ollama server in windows
+    i. $env:OLLAMA_HOST="0.0.0.0:11434"
+    ii. ollama serve
+    iii. to check server from other powershell- curl http://127.0.0.1:11434/api/tags and curl http://192.168.0.106:11434/api/tags
+5. to use in ubuntu
+    i. wsl -d Ubuntu then  cd ~
+    ii. for having uv - curl -Ls https://astral.sh/uv/install.sh | sh then exec $SHELL then uv --version
+    iii. clone git https://github.com/jonigl/mcp-client-for-ollama.git then cd ~/mcp-client-for-ollama
+    iv. for checking server from ubuntu - curl http://192.168.0.106:11434/api/tags
+6. if everything is fine then in ubuntu, wsl- need to run 
+uv run -m mcp_client_for_ollama\ --host http://192.168.0.106:11434
+\ --mcp-server-url "https://mcp.zapier.com/api/v1/connect?token=ZDgyMWFjN2MtMzNiOS00MDQ0LTg4YzUtZThjZTVmOGEyNWQwOmpjQWF3VGMrYTJKb3JVZWtPNUJQclBhZXpkcHlMS3BZdkw3TzF2ejdXU289"
